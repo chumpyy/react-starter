@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
+import SplashScreen from 'react-native-splash-screen';
 
 import {
   prepareRequestInterceptor,
@@ -22,6 +23,8 @@ function relogin() {
   if (state && state.auth && state.auth.token) {
     store.dispatch(reloginRequest());
   }
+
+  SplashScreen.hide();
 }
 
 const Root = () => (
